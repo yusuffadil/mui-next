@@ -12,10 +12,9 @@ import Menu from '@mui/material/Menu';
 
 const drawerWidth = 240;
   
-function Header() {
+function Header({mobileOpen, setMobileOpen}) {
     const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleChangehandleChange = (event) => {
         setAuth(event.target.checked);

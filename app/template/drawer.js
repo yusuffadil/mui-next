@@ -16,18 +16,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import ListItemButton from '@mui/material/ListItemButton';
 import Typography from '@mui/material/Typography';
-// import { useSelectedLayoutSegment } from 'next/navigation';
 
 const drawerWidth = 240;
 
 function SideMenu(props) {
-    const { window } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
-
-    // const [auth, setAuth] = React.useState(true);
-    // const [anchorEl, setAnchorEl] = React.useState(null);
-
-    // const activeSegment = useSelectedLayoutSegment()
+    const { window, mobileOpen, setMobileOpen } = props;
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);

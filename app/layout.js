@@ -14,6 +14,8 @@ const metadata = {
 }
   
 function RootLayout(props) {
+    const [mobileOpen, setMobileOpen] = React.useState(false);
+
     return (
         <html lang="en">
             <head>
@@ -24,8 +26,8 @@ function RootLayout(props) {
             <body>
                 <Box sx={{ display: 'flex' }}>
                     <CssBaseline />
-                    <Header />
-                    <SideMenu />
+                    <Header mobileOpen={mobileOpen} setMobileOpen={setMobileOpen}/>
+                    <SideMenu mobileOpen={mobileOpen} setMobileOpen={setMobileOpen}/>
                     <div>{props.children}</div>
                 </Box>
             </body>
