@@ -1,22 +1,21 @@
 "use client"
 
 import * as React from 'react';
-// import Link from "next/link"
-import Link from '@mui/material/Link';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
+import Link from '@mui/material/Link';
 import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
 import Toolbar from '@mui/material/Toolbar';
 import ListItem from '@mui/material/ListItem';
 import MailIcon from '@mui/icons-material/Mail';
-import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import ListItemButton from '@mui/material/ListItemButton';
-import Typography from '@mui/material/Typography';
 
+import TreeMenu from './listmenu'
 const drawerWidth = 240;
 
 function SideMenu(props) {
@@ -45,18 +44,7 @@ function SideMenu(props) {
                 ))}
             </List>
             <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                <ListItem key={text} disablePadding>
-                    <ListItemButton>
-                    <ListItemIcon>
-                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                    </ListItemButton>
-                </ListItem>
-                ))}
-            </List>
+            <TreeMenu />
         </div>
     );
 
@@ -65,14 +53,14 @@ function SideMenu(props) {
     return (
         <Box
             component="nav"
-            sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
             aria-label="mailbox folders"
+            sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         >
             {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
             <Drawer
-                container={container}
-                variant="temporary"
                 open={mobileOpen}
+                variant="temporary"
+                container={container}
                 onClose={handleDrawerToggle}
                 ModalProps={{
                     keepMounted: true, // Better open performance on mobile.
@@ -83,14 +71,15 @@ function SideMenu(props) {
                 }}
             >
                 {drawer}
+                
             </Drawer>
             <Drawer
+                open
                 variant="permanent"
                 sx={{
                     display: { xs: 'none', sm: 'block' },
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}
-                open
             >
                 {drawer}
             </Drawer>

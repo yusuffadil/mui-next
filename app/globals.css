@@ -7,13 +7,14 @@ a {
 
 .custom-icon.css-cveggr-MuiListItemIcon-root {
     min-width: 30px!important;
-  }
+}
   
-  .center-text.css-1oxen2w-MuiTypography-root {
+.center-text.css-1oxen2w-MuiTypography-root {
     margin-bottom: 0!important;
-  }
+}
   
-  .center-text+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
+.center-text+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
     margin-left: 55%;
-  }
-  /* E - custom */
+}
+
+/* E - custom */
