@@ -28,7 +28,7 @@ function RootLayout(props) {
                     <CssBaseline />
                     <Header mobileOpen={mobileOpen} setMobileOpen={setMobileOpen}/>
                     <SideMenu mobileOpen={mobileOpen} setMobileOpen={setMobileOpen}/>
-                    <div>{props.children}</div>
+                    <div className='mt-content'>{props.children}</div>
                 </Box>
             </body>
         </html>

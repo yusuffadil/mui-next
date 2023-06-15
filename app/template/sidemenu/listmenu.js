@@ -142,7 +142,7 @@ export default function TreeMenu() {
 
     return (
         <TreeView
-            defaultExpanded={[4]}
+            defaultExpanded={['Categories']}
             defaultExpandIcon={<ArrowRightIcon />}
             defaultCollapseIcon={<ArrowDropDownIcon />}
             defaultEndIcon={<div style={{ width: 24 }} />}
@@ -152,13 +152,14 @@ export default function TreeMenu() {
                 menu.map((val, i) => {
                     if(val?.child?.length > 0)
                         return (
-                            <StyledTreeItem nodeId={i+1} labelText={val.name} labelIcon={Label}>
+                            <StyledTreeItem key={val.name} nodeId={val.name} labelText={val.name} labelIcon={Label}>
                                 {
                                     val.child.map((child, ii) => {
                                         return (
-                                            <Link href={`/${child.path}`} underline="none">
+                                            <Link key={child.name} href={`/${child.path}`} underline="none">
                                                 <StyledTreeItem
-                                                    nodeId={i+ii+2}
+                                                    key={val.name}
+                                                    nodeId={child.name}
                                                     labelText={child.name}
                                                     labelIcon={child.icon}
                                                 />
@@ -169,8 +170,8 @@ export default function TreeMenu() {
                             </StyledTreeItem>
                         )
                     return (
-                        <Link href={`/${val.path}`} underline="none">
-                            <StyledTreeItem nodeId={i+1} labelText={val.name} labelIcon={val.icon} />
+                        <Link key={val.name} href={`/${val.path}`} underline="none">
+                            <StyledTreeItem key={val.name} nodeId={val.name} labelText={val.name} labelIcon={val.icon} />
                         </Link>
                     )
                 })
